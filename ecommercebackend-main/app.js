@@ -61,7 +61,7 @@ app.use('/coupon',couponRoutes)
 const uri = "mongodb+srv://jitubhai8928:jitubhai8000@cluster0.vmkxp.mongodb.net/test?retryWrites=true&w=majority"
 // Make sure MONGO_URI is correctly set in .env
 
-mongoose.connect(uri, options)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB successfully');
   })
