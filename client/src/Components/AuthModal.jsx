@@ -24,7 +24,7 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
       if (role === 'seller') {
         // Seller-specific Sign Up or Login
         if (isSignUp) {
-          response = await axios.post('http://localhost:5000/auth/seller/signup', {
+          response = await axios.post('https://watch-ecom-bay.vercel.app/auth/seller/signup', {
             name,
             email,
             password,
@@ -32,7 +32,7 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
           });
           alert('Seller Sign Up successful!');
         } else {
-          response = await axios.post('http://localhost:5000/auth/seller/login', {
+          response = await axios.post('https://watch-ecom-bay.vercel.app/auth/seller/login', {
             email,
             password,
           });
@@ -41,7 +41,7 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
       } else {
         // Customer-specific Sign Up or Login
         if (isSignUp) {
-          response = await axios.post('http://localhost:5000/auth/signup', {
+          response = await axios.post('https://watch-ecom-bay.vercel.app/auth/signup', {
             name,
             email,
             password,
@@ -49,7 +49,7 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
           });
           alert('Sign Up successful!');
         } else {
-          response = await axios.post('http://localhost:5000/auth/login', {
+          response = await axios.post('https://watch-ecom-bay.vercel.app/auth/login', {
             email,
             password,
           });

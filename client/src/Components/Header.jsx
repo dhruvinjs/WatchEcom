@@ -18,7 +18,7 @@ function Header({ component }) {
   const fetchCartCount = async () => {
     if (!userId) return;
     try {
-      const response = await axios.post('http://localhost:5000/cart/get-cart', { userId });
+      const response = await axios.post('https://watch-ecom-bay.vercel.app/cart/get-cart', { userId });
       setCartCount(response.data.count || 0);
     } catch (error) {
       console.error('Error fetching cart count:', error);
@@ -42,7 +42,7 @@ function Header({ component }) {
   // Handle Logout
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/auth/logout', {}, { withCredentials: true });
+      await axios.post('https://watch-ecom-bay.vercel.app/auth/logout', {}, { withCredentials: true });
       localStorage.removeItem('userId'); // Clear user data from local storage
       navigate('/'); // Redirect to homepage
     } catch (error) {

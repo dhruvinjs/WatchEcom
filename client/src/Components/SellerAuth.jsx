@@ -27,8 +27,8 @@ const SellerAuth = () => {
   
     try {
       const endpoint = isLogin
-        ? 'http://localhost:5000/auth/seller/login'
-        : 'http://localhost:5000/auth/seller/signup';
+        ? 'https://watch-ecom-bay.vercel.app/auth/seller/login'
+        : 'https://watch-ecom-bay.vercel.app/auth/seller/signup';
   
       const payload = isLogin
         ? { email, password }

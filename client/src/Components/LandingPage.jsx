@@ -23,7 +23,7 @@ function LandingPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/get-product');
+        const res = await axios.get('https://watch-ecom-bay.vercel.app/get-product');
         setProducts(res.data.products);
         setLoading(false);
       } catch (error) {
@@ -38,7 +38,7 @@ function LandingPage() {
   const addCart = useCallback(async (productId, quantity) => {
     const userId = localStorage.getItem('userId');
     try {
-      await axios.post("http://localhost:5000/cart/addtocart", { userId, productId, quantity });
+      await axios.post("https://watch-ecom-bay.vercel.app/cart/addtocart", { userId, productId, quantity });
       setMessage('Product added to cart successfully!');
     } catch (error) {
       console.error('Error adding product to cart:', error);
@@ -51,7 +51,7 @@ function LandingPage() {
 
     try {
       // Get the user's cart
-      const cartRes = await axios.post(`http://localhost:5000/cart/get-cart`, { userId });
+      const cartRes = await axios.post(`https://watch-ecom-bay.vercel.app/cart/get-cart`, { userId });
       const cart = cartRes.data;
 
       if (cart && cart.productsInCart && Array.isArray(cart.productsInCart)) {
@@ -61,7 +61,7 @@ function LandingPage() {
         for (let item of cart.productsInCart) {
           const newQuantity = item.productQty + 1;
           try {
-            await axios.put("http://localhost:5000/cart/update-quantity", { userId, productId: item.productId, productQty: newQuantity });
+            await axios.put("https://watch-ecom-bay.vercel.app/cart/update-quantity", { userId, productId: item.productId, productQty: newQuantity });
           } catch (error) {
             console.error('Error updating product quantity:', error);
             updateSuccess = false;
