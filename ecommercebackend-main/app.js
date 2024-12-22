@@ -58,13 +58,8 @@ app.use('/coupon',couponRoutes)
 // MongoDB Connection
 
 
-const uri = process.env.MONGO_URI; // Make sure MONGO_URI is correctly set in .env
-
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  ssl: true, // Ensure SSL is enabled for MongoDB Atlas
-};
+const uri = "mongodb+srv://jitubhai8928:jitubhai8000@cluster0.vmkxp.mongodb.net/test?retryWrites=true&w=majority"
+// Make sure MONGO_URI is correctly set in .env
 
 mongoose.connect(uri, options)
   .then(() => {
