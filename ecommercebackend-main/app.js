@@ -63,6 +63,10 @@ mongoose.connect(uri).then(() => {
   console.error('Error connecting to MongoDB:', err);
 });
 
+
+app.get('/',(req,res)=>{
+  res.send("Server alive")
+})
 // Keep-Alive Route
 app.get('/keep-alive', (req, res) => {
   res.status(200).json({
