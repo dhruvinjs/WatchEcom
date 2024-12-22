@@ -56,13 +56,23 @@ app.use('/complaints', complaintsRoutes);
 app.use('/coupon',couponRoutes)
 
 // MongoDB Connection
-const uri = process.env.MONGO_URI;
-mongoose.connect(uri).then(() => {
-  console.log('Connected to MongoDB');
-}).catch(err => {
-  console.error('Error connecting to MongoDB:', err);
-});
 
+
+const uri = process.env.MONGO_URI; // Make sure MONGO_URI is correctly set in .env
+
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true, // Ensure SSL is enabled for MongoDB Atlas
+};
+
+mongoose.connect(uri, options)
+  .then(() => {
+    console.log('Connected to MongoDB successfully');
+  })
+  .catch(err => {
+    console.error('Error connecting to MongoDB:', err);
+  });
 
 app.get('/',(req,res)=>{
   res.json("Server alive")

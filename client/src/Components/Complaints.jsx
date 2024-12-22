@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Importing axios
 import Footer from './Footer';
-import NavBar from './NavBar';
+
 import Header from './Header';
 
 
