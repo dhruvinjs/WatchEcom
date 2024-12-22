@@ -65,7 +65,7 @@ mongoose.connect(uri).then(() => {
 
 
 app.get('/',(req,res)=>{
-  res.send("Server alive")
+  res.json("Server alive")
 })
 // Keep-Alive Route
 app.get('/keep-alive', (req, res) => {
