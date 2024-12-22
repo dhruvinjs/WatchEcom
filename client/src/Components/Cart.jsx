@@ -18,7 +18,7 @@ function Cart() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('https://watch-ecom-bay.vercel.app/get-product');
+        const res = await axios.get('https://watch-ecom-beryl.vercel.app/get-product');
         setProducts(res.data.products);
         setLoading(false);
       } catch (error) {
@@ -33,7 +33,7 @@ function Cart() {
   const fetchCart = useCallback(async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const res = await axios.post('https://watch-ecom-bay.vercel.app/cart/get-cart', { userId });
+      const res = await axios.post('https://watch-ecom-beryl.vercel.app/cart/get-cart', { userId });
     
       const cartWithDetails = res.data.cart.productsInCart.map(item => {
         const product = products.find(p => p._id === item.productId);
@@ -58,7 +58,7 @@ function Cart() {
   const deleteItem = async (productId) => {
     const userId = localStorage.getItem('userId');
     try {
-      await axios.delete('https://watch-ecom-bay.vercel.app/cart/remove-from-cart', { data: { userId, productId } });
+      await axios.delete('https://watch-ecom-beryl.vercel.app/cart/remove-from-cart', { data: { userId, productId } });
       setMessage('Item removed from cart.');
       fetchCart();
     } catch (error) {
@@ -75,7 +75,7 @@ function Cart() {
     }));
     const price = cartItems.reduce((sum, item) => sum + item.price * item.productQty, 0);
     try {
-      const response = await axios.post('https://watch-ecom-bay.vercel.app/cart/place-order', {
+      const response = await axios.post('https://watch-ecom-beryl.vercel.app/cart/place-order', {
         userId,
         name,
         username,  // Send the username here

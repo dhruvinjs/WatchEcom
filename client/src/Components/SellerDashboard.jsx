@@ -13,7 +13,7 @@ const SellerDashboard = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('https://watch-ecom-bay.vercel.app/get-product');
+        const res = await axios.get('https://watch-ecom-beryl.vercel.app/get-product');
         setProducts(res.data.products);
         setLoading(false);
       } catch (error) {
@@ -28,7 +28,7 @@ const SellerDashboard = () => {
   // Handle Logout
   const handleLogout = async () => {
     try {
-      await axios.post('https://watch-ecom-bay.vercel.app/auth/logout', {}, { withCredentials: true });
+      await axios.post('https://watch-ecom-beryl.vercel.app/auth/logout', {}, { withCredentials: true });
       localStorage.removeItem('userId'); // Clear user data from local storage
       navigate('/'); // Redirect to homepage
     } catch (error) {
@@ -55,7 +55,7 @@ const SellerDashboard = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put('https://watch-ecom-bay.vercel.app/instock-update', editFormData);
+      const res = await axios.put('https://watch-ecom-beryl.vercel.app/instock-update', editFormData);
       if (res.data.success) {
         setProducts((prevProducts) =>
           prevProducts.map((product) =>

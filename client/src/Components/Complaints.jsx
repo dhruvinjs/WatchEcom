@@ -30,7 +30,7 @@ function ComplaintPage() {
 
     try {
   
-      const response = await axios.post('https://watch-ecom-bay.vercel.app/complaints/post-complaints', complaintData);
+      const response = await axios.post('https://watch-ecom-beryl.vercel.app/complaints/post-complaints', complaintData);
 
     
       if (response.data.message) {
